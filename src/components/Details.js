@@ -1,6 +1,7 @@
 import About from "./About";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Aside from "./Aside";
 
 export default function Details() {
   const { id } = useParams();
@@ -13,10 +14,16 @@ export default function Details() {
         setAboutUser(json);
       });
   }, []);
+  console.log(aboutUser);
   return (
     <>
-      <a href="/users">Back</a>
-      <About data={aboutUser} />
+      <div className="main">
+        <a href="/users">Back</a>
+        <About data={aboutUser} />
+      </div>
+      <div className="sidebar">
+        <Aside data={aboutUser} />
+      </div>
     </>
   );
 }
