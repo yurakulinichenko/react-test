@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Contacts from "./Contacts";
+import Skills from "./Skills";
 
 export default function Aside(props) {
   const [contactsData, setContactsData] = useState({});
@@ -12,12 +13,12 @@ export default function Aside(props) {
       .then((json) => setContactsData(json))
       .then(() => setLoading(true));
   }, []);
-  console.log(contactsData);
 
   if (loading === true) {
     return (
       <>
         <Contacts data={contactsData} />
+        <Skills />
       </>
     );
   }

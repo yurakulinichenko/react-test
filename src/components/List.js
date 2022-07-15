@@ -19,7 +19,6 @@ export default class List extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <ul>
         {this.state.users.map((user) => (
