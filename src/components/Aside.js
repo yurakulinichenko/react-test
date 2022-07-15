@@ -1,25 +1,24 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Contacts from "./Contacts";
 
 export default function Aside(props) {
+  const [contactsData, setContactsData] = useState({});
   const { id } = useParams();
-  const [contacts, setContacts] = useState({});
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    fetch(`https://yurii-cv-api.azurewebsites.net/${id}`)
+      .then((response) => response.json())
+      .then((json) => setContactsData(json))
+      .then(() => setLoading(true));
+  }, []);
+  console.log(contactsData);
 
-  return (
-    <div className="contacts">
-      <h3 className="sidebar-title">Contacts</h3>
-      <div>
-        <p>
-          <span className="contact-type">C:</span>
-          <a href="tel:" className="contact-link tel">
-            {tel}
-          </a>
-        </p>
-        <p>
-          <span className="contact-type">E:</span>
-          <a href="mailto:" className="contact-link mail"></a>
-        </p>
-      </div>
-    </div>
-  );
+  if (loading === true) {
+    return (
+      <>
+        <Contacts data={contactsData} />
+      </>
+    );
+  }
 }

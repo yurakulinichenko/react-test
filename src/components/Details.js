@@ -14,7 +14,7 @@ export default function Details() {
         setAboutUser(json);
       });
   }, []);
-  console.log(aboutUser);
+
   return (
     <>
       <div className="main">
@@ -22,7 +22,7 @@ export default function Details() {
         <About data={aboutUser} />
       </div>
       <div className="sidebar">
-        <Aside data={aboutUser} />
+        <Aside />
       </div>
     </>
   );
