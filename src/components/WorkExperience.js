@@ -14,7 +14,6 @@ export default function WorkExperience(props) {
   }, []);
 
   if (loading === true) {
-    console.log(workData);
     const work = (
       <div>
         <h3 className="title">Work Experience</h3>
