@@ -2,6 +2,7 @@ import About from "./About";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Aside from "./Aside";
+import WorkExperience from "./WorkExperience";
 
 export default function Details() {
   const { id } = useParams();
@@ -18,11 +19,15 @@ export default function Details() {
   return (
     <>
       <div className="main">
-        <a href="/users">Back</a>
-        <About data={aboutUser} />
-      </div>
-      <div className="sidebar">
-        <Aside />
+        <div className="main-content">
+          <a href="/users">Back</a>
+          <About data={aboutUser} />
+          <WorkExperience />
+        </div>
+
+        <div className="sidebar">
+          <Aside />
+        </div>
       </div>
     </>
   );

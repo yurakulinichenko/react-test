@@ -17,6 +17,7 @@ export default function Aside(props) {
   if (loading === true) {
     return (
       <>
+        <img src="" alt="" className="photo" />
         <Contacts data={contactsData} />
         <Skills />
       </>
